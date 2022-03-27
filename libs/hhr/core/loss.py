@@ -14,6 +14,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 import numpy as np
+import torch.cuda.comm
 
 class JointsMSELoss(nn.Module):
     def __init__(self, use_target_weight):
