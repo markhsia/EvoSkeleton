@@ -103,11 +103,9 @@ def get_max_preds_soft_pt(batch_heatmaps):
     batch_heatmaps = heatmaps_reshaped.view(batch_size, num_joints, height, width)
     x = batch_heatmaps.sum(dim = 2)
     y = batch_heatmaps.sum(dim = 3)
-    #x_indices = torch.cuda.comm.broadcast(torch.arange(width).type(torch.cuda.FloatTensor), devices=[x.device.index])[0]
-    x_indices = torch.arange(width).type(torch.cuda.FloatTensor)
+    x_indices = torch.cuda.comm.broadcast(torch.arange(width).type(torch.cuda.FloatTensor), devices=[x.device.index])[0]
     x_indices = x_indices.view(1,1,width)
-    #y_indices = torch.cuda.comm.broadcast(torch.arange(height).type(torch.cuda.FloatTensor), devices=[x.device.index])[0]
-    y_indices = torch.arange(height).type(torch.cuda.FloatTensor)
+    y_indices = torch.cuda.comm.broadcast(torch.arange(height).type(torch.cuda.FloatTensor), devices=[x.device.index])[0]
     y_indices = y_indices.view(1,1,height)    
     x *= x_indices
     y *= y_indices
