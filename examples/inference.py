@@ -130,7 +130,7 @@ def show3Dpose(channels,
         ax.set_xlabel("x")
         ax.set_ylabel("z")
         ax.set_zlabel("y")
-    ax.set_aspect('equal')
+#    ax.set_aspect('equal')
     # Get rid of the panes (actually, make them white)
     white = (1.0, 1.0, 1.0, 0.0)
     ax.w_xaxis.set_pane_color(white)
