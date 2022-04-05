@@ -131,6 +131,7 @@ def show3Dpose(channels,
         ax.set_ylabel("z")
         ax.set_zlabel("y")
 #    ax.set_aspect('equal')
+    ax.set_aspect('auto')
     # Get rid of the panes (actually, make them white)
     white = (1.0, 1.0, 1.0, 0.0)
     ax.w_xaxis.set_pane_color(white)
@@ -178,7 +179,8 @@ for image_name in data_dic.keys():
     plt.title('Input image')
     ax2 = plt.subplot(132)
     plt.title('2D key-point inputs: {:d}*2'.format(num_joints))
-    ax2.set_aspect('equal')
+    #ax2.set_aspect('equal')
+    ax2.set_aspect('auto')
     ax2.invert_yaxis()
     skeleton_pred = None
     skeleton_2d = data_dic[image_name]['p2d']
