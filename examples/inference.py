@@ -171,6 +171,7 @@ def adjust_figure(left = 0,
     return
 
 for image_name in data_dic.keys():
+    print(image_name)
     image_path = './imgs/' + image_name
     img = imageio.imread(image_path)
     f = plt.figure(figsize=(9, 3))
